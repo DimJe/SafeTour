@@ -21,4 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "SafeTour"
 include(":app")
- 
+include(":presentation")
+include(":domain")
+include(":data")
