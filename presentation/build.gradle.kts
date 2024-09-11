@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.hilt.plugin)
+    kotlin("kapt")
 }
 
 android {
@@ -68,4 +70,16 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    implementation(libs.retrofit)
+    implementation(libs.gson)
+
+    implementation(libs.xml.annotation)
+    implementation(libs.xml.core)
+    implementation(libs.xml.retrofit)
+    kapt(libs.xml.processor)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.interceptor)
 }
