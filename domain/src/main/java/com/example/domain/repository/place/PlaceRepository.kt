@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface PlaceRepository {
 
-    fun getPlace(name: String): Flow<Result<PlaceEntity>>
+    fun getPlace(name: String): Flow<Result<List<PlaceEntity>>>
 }
