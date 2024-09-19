@@ -21,6 +21,7 @@ okHttp = "5.0.0-alpha.2"
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-runner = { group = "androidx.test", name = "runner", version = "1.6.2"}
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
@@ -51,6 +52,8 @@ xml-processor = { group = "com.tickaroo.tikxml", name = "processor", version.ref
 
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okHttp"}
 okhttp-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okHttp"}
+
+google-places = { group = "com.google.android.libraries.places", name = "places", version = "3.5.0"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

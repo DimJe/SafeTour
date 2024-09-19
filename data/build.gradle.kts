@@ -13,6 +13,10 @@ if (localPropertiesFile.exists()) {
     localProperties.load(localPropertiesFile.inputStream())
 }
 val apiKey = localProperties.getProperty("DATA_POTAL_API_KEY","")
+val exchangeRateKey = localProperties.getProperty("EXCHANGE_RATE_API_KEY","")
+val googlePlaceKey = localProperties.getProperty("GOOGLE_PLACE_API_KEY","")
+val naverClientId = localProperties.getProperty("NAVER_CLIENT_ID","")
+val naverClientSecret = localProperties.getProperty("NAVER_CLIENT_SECRET","")
 android {
     namespace = "com.example.data"
     compileSdk = 34
@@ -23,6 +27,10 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
         buildConfigField("String", "DATA_POTAL_API_KEY", "\"$apiKey\"")
+        buildConfigField("String", "EXCHANGE_RATE_API_KEY", "\"$exchangeRateKey\"")
+        buildConfigField("String", "GOOGLE_PLACE_API_KEY", "\"$googlePlaceKey\"")
+        buildConfigField("String", "NAVER_CLIENT_ID", "\"$naverClientId\"")
+        buildConfigField("String", "NAVER_CLIENT_SECRET", "\"$naverClientSecret\"")
     }
 
     buildTypes {
@@ -55,6 +63,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.runner)
 
     implementation(libs.retrofit)
     implementation(libs.gson)
@@ -66,5 +75,7 @@ dependencies {
     kapt(libs.xml.processor)
     implementation(libs.okhttp)
     implementation(libs.okhttp.interceptor)
+
+    implementation(libs.google.places)
 }
 
