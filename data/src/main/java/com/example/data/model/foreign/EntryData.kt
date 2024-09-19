@@ -1,4 +1,4 @@
-package com.example.data.model
+package com.example.data.model.foreign
 
 import com.example.domain.entity.foreign.EntryConditionData
 import com.example.domain.entity.foreign.EntryConditionEntity

@@ -1,7 +1,7 @@
 package com.example.data.repository.foreign
 
-import com.example.data.datasource.ForeignRemoteDataSource
-import com.example.data.model.toDomain
+import com.example.data.datasource.foreign.ForeignRemoteDataSource
+import com.example.data.model.foreign.toDomain
 import com.example.domain.entity.foreign.BasicEntity
 import com.example.domain.entity.foreign.ContactEntity
 import com.example.domain.entity.foreign.EntryConditionEntity

@@ -1,18 +1,18 @@
-package com.example.data.datasource
+package com.example.data.datasource.foreign
 
-import com.example.data.api.ForeignApi
-import com.example.data.api.ForeignXmlApi
-import com.example.data.model.BasicData
-import com.example.data.model.ContactData
-import com.example.data.model.EntryData
-import com.example.data.model.PoliceData
+import com.example.data.api.foreign.ForeignApi
+import com.example.data.api.foreign.ForeignXmlApi
+import com.example.data.model.foreign.BasicData
+import com.example.data.model.foreign.ContactData
+import com.example.data.model.foreign.EntryData
+import com.example.data.model.foreign.PoliceData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import retrofit2.Response
 
-class ForeignRemoteDataSource(private val foreignApi: ForeignApi,private val foreignXmlApi: ForeignXmlApi) {
+class ForeignRemoteDataSource(private val foreignApi: ForeignApi, private val foreignXmlApi: ForeignXmlApi) {
 
     fun getContact(serviceKey: String, countryName: String): Flow<ContactData> = flow{
         val response = foreignApi.getContact(serviceKey, countryName = countryName)

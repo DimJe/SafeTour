@@ -1,6 +1,5 @@
-package com.example.data.model
+package com.example.data.model.foreign
 
-import android.text.Html
 import com.example.domain.entity.foreign.BasicEntity
 import com.tickaroo.tikxml.annotation.Element
 import com.tickaroo.tikxml.annotation.PropertyElement

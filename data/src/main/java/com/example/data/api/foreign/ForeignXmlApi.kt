@@ -1,12 +1,12 @@
-package com.example.data.api
+package com.example.data.api.foreign
 
-import com.example.data.model.BasicData
+import com.example.data.model.foreign.BasicData
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ForeignXmlApi {
-    @GET("/1262000/CountryBasicService/getCountryBasicList")
+    @GET("1262000/CountryBasicService/getCountryBasicList")
     suspend fun getBasic(
         @Query("serviceKey") serviceKey: String,
         @Query("numOfRows") numOfRows: Int = 10,
