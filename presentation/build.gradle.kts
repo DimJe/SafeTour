@@ -10,7 +10,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.presentation"
+        applicationId = "com.example.safetour"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
@@ -66,6 +66,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.androidx.runner)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
@@ -82,4 +83,7 @@ dependencies {
     kapt(libs.xml.processor)
     implementation(libs.okhttp)
     implementation(libs.okhttp.interceptor)
+
+    implementation(libs.google.places)
+
 }
