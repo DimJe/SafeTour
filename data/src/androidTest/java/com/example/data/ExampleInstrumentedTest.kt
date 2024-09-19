@@ -1,9 +1,10 @@
 package com.example.data
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.data.api.ForeignApi
-import com.example.data.api.ForeignXmlApi
-import com.example.data.datasource.ForeignRemoteDataSource
+import androidx.test.platform.app.InstrumentationRegistry
+import com.example.data.api.foreign.ForeignApi
+import com.example.data.api.foreign.ForeignXmlApi
+import com.example.data.datasource.foreign.ForeignRemoteDataSource
 import com.example.data.repository.foreign.ForeignInfoRepositoryImpl
 import com.google.gson.GsonBuilder
 import com.tickaroo.tikxml.retrofit.TikXmlConverterFactory
