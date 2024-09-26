@@ -1,13 +1,13 @@
 package com.example.data
 
-import com.example.data.api.blog.BlogApi
+import com.example.data.api.naver.NaverApi
 import com.example.data.api.exchange.ExchangeRateApi
 import com.example.data.api.foreign.ForeignApi
 import com.example.data.api.foreign.ForeignXmlApi
-import com.example.data.datasource.blog.BlogRemoteDataSource
+import com.example.data.datasource.naver.NaverRemoteDataSource
 import com.example.data.datasource.exchange.ExchangeRateRemoteDataSource
 import com.example.data.datasource.foreign.ForeignRemoteDataSource
-import com.example.data.repository.blog.BlogRepositoryImpl
+import com.example.data.repository.naver.NaverRepositoryImpl
 import com.example.data.repository.exchange.ExchangeRateRepositoryImpl
 import com.example.data.repository.foreign.ForeignInfoRepositoryImpl
 import com.google.gson.GsonBuilder
@@ -61,8 +61,8 @@ class ExampleUnitTest {
         .client(client)
         .baseUrl("https://openapi.naver.com/v1/search/")
         .build()
-        .create(BlogApi::class.java)
-    val blogRepositoryImpl = BlogRepositoryImpl(BlogRemoteDataSource(blogService))
+        .create(NaverApi::class.java)
+    val naverRepositoryImpl = NaverRepositoryImpl(NaverRemoteDataSource(blogService))
 
     @Test
     //평일 11시 이전이면 주말 공휴일 제외 가까운 과거의 평일을 호출해야함
@@ -125,10 +125,20 @@ class ExampleUnitTest {
     }
     @Test
     fun getBlog() = runBlocking {
-        blogRepositoryImpl.getBlog("일본 여행지 추천")
+        naverRepositoryImpl.getBlog("일본 여행지 추천")
             .collect { result ->
                 result.fold(
                     onSuccess = { it.items.forEach { println(it) } },
+                    onFailure = { println(it.message) }
+                )
+            }
+    }
+    @Test
+    fun getImage() = runBlocking {
+        naverRepositoryImpl.getImage("일본 관광지 사진")
+            .collect{ result ->
+                result.fold(
+                    onSuccess = {it.items.forEach { println(it) }},
                     onFailure = { println(it.message) }
                 )
             }

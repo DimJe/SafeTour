@@ -1,4 +1,4 @@
-package com.example.domain.entity.blog
+package com.example.domain.entity.naver
 
 data class BlogEntity(
     val items: List<BlogItem>,

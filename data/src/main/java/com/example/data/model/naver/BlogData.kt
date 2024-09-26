@@ -1,7 +1,7 @@
-package com.example.data.model.blog
+package com.example.data.model.naver
 
-import com.example.domain.entity.blog.BlogEntity
-import com.example.domain.entity.blog.BlogItem
+import com.example.domain.entity.naver.BlogEntity
+import com.example.domain.entity.naver.BlogItem
 import com.google.gson.annotations.SerializedName
 
 data class BlogData(
