@@ -12,8 +12,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import retrofit2.Response
+import javax.inject.Inject
 
-class ForeignRemoteDataSource(private val foreignApi: ForeignApi, private val foreignXmlApi: ForeignXmlApi) {
+class ForeignRemoteDataSource @Inject constructor(private val foreignApi: ForeignApi, private val foreignXmlApi: ForeignXmlApi) {
 
     private val serviceKey = BuildConfig.DATA_POTAL_API_KEY
 

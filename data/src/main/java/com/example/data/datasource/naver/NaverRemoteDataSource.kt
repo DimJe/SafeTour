@@ -8,8 +8,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import javax.inject.Inject
 
-class NaverRemoteDataSource(
+class NaverRemoteDataSource @Inject constructor(
     private val naverApi: NaverApi
 ) {
     private val clientId = BuildConfig.NAVER_CLIENT_ID

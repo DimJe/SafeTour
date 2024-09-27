@@ -9,8 +9,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import javax.inject.Inject
 
-class PlaceRepositoryImpl(private val placeRemoteDataSource: PlaceRemoteDataSource) :
+class PlaceRepositoryImpl @Inject constructor(private val placeRemoteDataSource: PlaceRemoteDataSource) :
     PlaceRepository {
     override fun getPlace(name: String): Flow<Result<List<PlaceEntity>>> = flow{
         try {

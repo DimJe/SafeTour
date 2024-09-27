@@ -7,6 +7,8 @@ import com.example.data.datasource.place.PlaceRemoteDataSource
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place
 import com.google.android.libraries.places.api.net.SearchByTextRequest
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -17,6 +19,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 import org.junit.Assert.*
+import org.junit.Rule
 import java.util.Arrays
 import java.util.Base64
 
@@ -25,8 +28,13 @@ import java.util.Base64
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
+@HiltAndroidTest
 @RunWith(AndroidJUnit4::class)
 class ExampleInstrumentedTest {
+
+    @get:Rule
+    var hiltRule = HiltAndroidRule(this)
+
     @Test
     fun useAppContext() = runBlocking {
 

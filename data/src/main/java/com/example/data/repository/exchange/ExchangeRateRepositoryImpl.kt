@@ -9,8 +9,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import javax.inject.Inject
 
-class ExchangeRateRepositoryImpl(
+class ExchangeRateRepositoryImpl @Inject constructor(
     private val exchangeRateRemoteDataSource: ExchangeRateRemoteDataSource
 ): ExchangeRateRepository {
     override fun getExchangeRate(

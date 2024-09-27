@@ -7,8 +7,9 @@ import com.google.android.libraries.places.api.net.SearchByTextRequest
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
+import javax.inject.Inject
 
-class PlaceRemoteDataSource(
+class PlaceRemoteDataSource @Inject constructor(
     private val placeClient: PlacesClient
 ) {
 

@@ -13,8 +13,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import javax.inject.Inject
 
-class ForeignInfoRepositoryImpl(private val foreignRemoteDataSource: ForeignRemoteDataSource): ForeignInfoRepository {
+class ForeignInfoRepositoryImpl @Inject constructor(private val foreignRemoteDataSource: ForeignRemoteDataSource): ForeignInfoRepository {
 
 
     override fun getEntryCondition(name: String): Flow<Result<EntryConditionEntity>> =  flow {

@@ -1,6 +1,5 @@
 package com.example.data.repository.naver
 
-import com.example.data.BuildConfig
 import com.example.data.datasource.naver.NaverRemoteDataSource
 import com.example.data.model.naver.toDomain
 import com.example.domain.entity.naver.BlogEntity
@@ -11,8 +10,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import javax.inject.Inject
 
-class NaverRepositoryImpl(
+class NaverRepositoryImpl @Inject constructor(
     private val naverRemoteDataSource: NaverRemoteDataSource
 ): NaverRepository {
     override fun getBlog(query: String): Flow<Result<BlogEntity>> = flow{

@@ -7,9 +7,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import javax.inject.Inject
 
 
-class ExchangeRateRemoteDataSource(
+class ExchangeRateRemoteDataSource @Inject constructor(
     private val exchangeRateApi: ExchangeRateApi
 ) {
     fun getExchangeRate(searchDate: String): Flow<List<ExchangeRateData>> = flow {
