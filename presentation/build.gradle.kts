@@ -75,9 +75,12 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
     implementation(libs.hilt.compose)
+    androidTestImplementation(libs.hilt.test)
+    kaptAndroidTest(libs.hilt.compiler)
 
     implementation(libs.retrofit)
     implementation(libs.gson)
+    implementation(libs.scalar)
 
     implementation(libs.xml.annotation)
     implementation(libs.xml.core)

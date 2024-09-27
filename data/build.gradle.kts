@@ -77,5 +77,8 @@ dependencies {
     implementation(libs.okhttp.interceptor)
 
     implementation(libs.google.places)
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 }
 
