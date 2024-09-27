@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface ExchangeRateRepository {
 
-    fun getExchangeRate(authKey: String, searchDate: String): Flow<Result<List<ExchangeRateEntity>>>
+    fun getExchangeRate(searchDate: String): Flow<Result<List<ExchangeRateEntity>>>
 }

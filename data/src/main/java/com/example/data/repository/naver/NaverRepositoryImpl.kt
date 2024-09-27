@@ -17,7 +17,7 @@ class NaverRepositoryImpl(
 ): NaverRepository {
     override fun getBlog(query: String): Flow<Result<BlogEntity>> = flow{
         try {
-            val response = naverRemoteDataSource.getBlog(BuildConfig.NAVER_CLIENT_ID, BuildConfig.NAVER_CLIENT_SECRET,query).first()
+            val response = naverRemoteDataSource.getBlog(query).first()
             val blog = response.toDomain()
             emit(Result.success(blog))
         }catch (e: Exception){
@@ -27,7 +27,7 @@ class NaverRepositoryImpl(
 
     override fun getImage(query: String): Flow<Result<ImageEntity>> = flow{
         try {
-            val response = naverRemoteDataSource.getImage(BuildConfig.NAVER_CLIENT_ID, BuildConfig.NAVER_CLIENT_SECRET,query).first()
+            val response = naverRemoteDataSource.getImage(query).first()
             val image = response.toDomain()
             emit(Result.success(image))
         }catch (e: Exception){

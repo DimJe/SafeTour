@@ -7,5 +7,5 @@ import kotlinx.coroutines.flow.Flow
 class GetEntryConditionUseCase(
     private val foreignInfoRepository: ForeignInfoRepository
 ) {
-    operator fun invoke(serviceKey:String, name: String): Flow<Result<EntryConditionEntity>> = foreignInfoRepository.getEntryCondition(serviceKey, name)
+    operator fun invoke(name: String): Flow<Result<EntryConditionEntity>> = foreignInfoRepository.getEntryCondition(name)
 }

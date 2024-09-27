@@ -1,5 +1,6 @@
 package com.example.data.datasource.foreign
 
+import com.example.data.BuildConfig
 import com.example.data.api.foreign.ForeignApi
 import com.example.data.api.foreign.ForeignXmlApi
 import com.example.data.model.foreign.BasicData
@@ -14,24 +15,26 @@ import retrofit2.Response
 
 class ForeignRemoteDataSource(private val foreignApi: ForeignApi, private val foreignXmlApi: ForeignXmlApi) {
 
-    fun getContact(serviceKey: String, countryName: String): Flow<ContactData> = flow{
+    private val serviceKey = BuildConfig.DATA_POTAL_API_KEY
+
+    fun getContact(countryName: String): Flow<ContactData> = flow{
         val response = foreignApi.getContact(serviceKey, countryName = countryName)
 
         emit(response)
     }.flowOn(Dispatchers.IO)
 
-    fun getPolice(serviceKey: String, countryName: String): Flow<PoliceData> = flow{
+    fun getPolice(countryName: String): Flow<PoliceData> = flow{
         val response = foreignApi.getPolice(serviceKey, countryName = countryName)
         emit(response)
 
     }.flowOn(Dispatchers.IO)
 
-    fun getBasic(serviceKey: String, countryName: String): Flow<Response<BasicData>> = flow{
+    fun getBasic(countryName: String): Flow<Response<BasicData>> = flow{
         val response = foreignXmlApi.getBasic(serviceKey, countryName = countryName)
         emit(response)
     }.flowOn(Dispatchers.IO)
 
-    fun getEntryCondition(serviceKey: String, countryName: String): Flow<EntryData> = flow{
+    fun getEntryCondition(countryName: String): Flow<EntryData> = flow{
         val response = foreignApi.getEntryCondition(serviceKey, countryName = countryName)
         emit(response)
     }.flowOn(Dispatchers.IO)

@@ -5,5 +5,5 @@ import com.example.domain.repository.exchange.ExchangeRateRepository
 class GetExchangeRateUseCase(
     private val exchangeRateRepository: ExchangeRateRepository
 ) {
-    operator fun invoke(authKey: String, searchDate: String) = exchangeRateRepository.getExchangeRate(authKey, searchDate)
+    operator fun invoke(searchDate: String) = exchangeRateRepository.getExchangeRate(searchDate)
 }

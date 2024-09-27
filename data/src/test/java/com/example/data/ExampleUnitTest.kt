@@ -67,7 +67,7 @@ class ExampleUnitTest {
     @Test
     //평일 11시 이전이면 주말 공휴일 제외 가까운 과거의 평일을 호출해야함
     fun 환율테스트() = runBlocking {
-        exchangeRateRepositoryImpl.getExchangeRate(BuildConfig.EXCHANGE_RATE_API_KEY, "20240913")
+        exchangeRateRepositoryImpl.getExchangeRate("20240927")
             .collect{ result ->
                 result.fold(
                     onSuccess = { assert(it.filter { it.curNm == "미국 달러"}.isNotEmpty()) },
@@ -79,11 +79,11 @@ class ExampleUnitTest {
     @Test
     fun 입국조건() = runBlocking {
 
-        foreignInfoRepositoryImpl.getEntryCondition(BuildConfig.DATA_POTAL_API_KEY, "일본")
+        foreignInfoRepositoryImpl.getEntryCondition("일본")
             .collect{ result ->
                 result.fold(
                     onSuccess = { assert(it.data.first().countryNm == "일본") },
-                    onFailure = { println(it.message) }
+                    onFailure = { println("Error  "+it.message) }
                 )
             }
 
@@ -91,35 +91,35 @@ class ExampleUnitTest {
     @Test
     fun 현지연락처() = runBlocking {
 
-        foreignInfoRepositoryImpl.getContact(BuildConfig.DATA_POTAL_API_KEY, "일본")
+        foreignInfoRepositoryImpl.getContact("일본")
             .collect{ result ->
                 result.fold(
                     onSuccess = { assert(it.data.first().countryNm == "일본") },
-                    onFailure = { println(it.message) }
+                    onFailure = { println("Error  "+it.message) }
                 )
             }
 
     }
     @Test
     fun 기본정보() = runBlocking {
-        foreignInfoRepositoryImpl.getBasicInfo(BuildConfig.DATA_POTAL_API_KEY, "일본")
+        foreignInfoRepositoryImpl.getBasicInfo("일본")
             .collect{ result ->
                 result.fold(
                     onSuccess = { assert(it.countryName == "일본")
                                 println(it.basic)
                     },
-                    onFailure = { println(it.message) }
+                    onFailure = { println("Error  "+it.message) }
                 )
             }
 
     }
     @Test
     fun 치안상황() = runBlocking {
-        foreignInfoRepositoryImpl.getPolice(BuildConfig.DATA_POTAL_API_KEY, "일본")
+        foreignInfoRepositoryImpl.getPolice("일본")
             .collect{ result ->
                 result.fold(
                     onSuccess = { assert(it.data.first().countryNm == "일본") },
-                    onFailure = { println(it.message) }
+                    onFailure = { println("Error  "+it.message) }
                 )
             }
     }
@@ -129,7 +129,7 @@ class ExampleUnitTest {
             .collect { result ->
                 result.fold(
                     onSuccess = { it.items.forEach { println(it) } },
-                    onFailure = { println(it.message) }
+                    onFailure = { println("Error  "+it.message) }
                 )
             }
     }
@@ -139,7 +139,7 @@ class ExampleUnitTest {
             .collect{ result ->
                 result.fold(
                     onSuccess = {it.items.forEach { println(it) }},
-                    onFailure = { println(it.message) }
+                    onFailure = { println("Error  "+it.message) }
                 )
             }
     }

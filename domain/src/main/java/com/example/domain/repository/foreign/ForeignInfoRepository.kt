@@ -9,8 +9,8 @@ import kotlinx.coroutines.flow.Flow
 
 interface ForeignInfoRepository {
 
-    fun getEntryCondition(serviceKey: String, name: String): Flow<Result<EntryConditionEntity>>
-    fun getBasicInfo(serviceKey: String, name: String): Flow<Result<BasicEntity>>
-    fun getContact(serviceKey: String, name: String): Flow<Result<ContactEntity>>
-    fun getPolice(serviceKey: String, name: String): Flow<Result<PoliceEntity>>
+    fun getEntryCondition(name: String): Flow<Result<EntryConditionEntity>>
+    fun getBasicInfo(name: String): Flow<Result<BasicEntity>>
+    fun getContact(name: String): Flow<Result<ContactEntity>>
+    fun getPolice(name: String): Flow<Result<PoliceEntity>>
 }

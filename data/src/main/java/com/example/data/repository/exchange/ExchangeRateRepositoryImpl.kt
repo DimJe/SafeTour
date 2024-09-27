@@ -14,11 +14,10 @@ class ExchangeRateRepositoryImpl(
     private val exchangeRateRemoteDataSource: ExchangeRateRemoteDataSource
 ): ExchangeRateRepository {
     override fun getExchangeRate(
-        authKey: String,
         searchDate: String
     ): Flow<Result<List<ExchangeRateEntity>>> = flow {
         try {
-            val response = exchangeRateRemoteDataSource.getExchangeRate(authKey, searchDate).first()
+            val response = exchangeRateRemoteDataSource.getExchangeRate(searchDate).first()
             val exchangeRate = response.map { it.toDomain() }
             emit(Result.success(exchangeRate))
         }catch (e: Exception){
