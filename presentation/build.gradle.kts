@@ -91,5 +91,5 @@ dependencies {
     implementation(libs.okhttp.interceptor)
 
     implementation(libs.google.places)
-
+    implementation(libs.compose.navigation)
 }
