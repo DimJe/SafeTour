@@ -17,7 +17,7 @@ class PlaceRemoteDataSource @Inject constructor(
 
         val placeFields = listOf(Place.Field.ID, Place.Field.NAME)
         val searchRequest =
-            SearchByTextRequest.builder(query, placeFields).setRegionCode("kr")
+            SearchByTextRequest.builder("$query 관광 명소", placeFields).setRegionCode("kr")
                 .build()
 
         placeClient.searchByText(searchRequest).addOnSuccessListener{
