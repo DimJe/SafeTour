@@ -26,7 +26,7 @@ class DataSourceModule {
 
     @Provides
     @Singleton
-    fun providePlaceClient(@ApplicationContext context: Application): PlacesClient {
+    fun providePlaceClient(@ApplicationContext context: Context): PlacesClient {
         BuildConfig.GOOGLE_PLACE_API_KEY
         Places.initializeWithNewPlacesApiEnabled(context,BuildConfig.GOOGLE_PLACE_API_KEY)
         return Places.createClient(context)
